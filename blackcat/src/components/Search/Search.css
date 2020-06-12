@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+.search-page {
+  width: 70%;
+  background-color: #453257;
+  height: 100vh;
+}
+
+.search-bar-title {
+  width: 10 0%;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #AC8EC9;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 0 10px 0;
+}
+
+.date-btn, .channel-btn {
+  background-color: transparent;
+  margin-bottom: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 12px;
+  border: none;
+  margin: 0 0 8px 5px;
+}
+
+.channel-btn {
+  border: white solid 1px;
+}
+
+.date-btn:hover, .channel-btn:hover {
+  background-color: #D5EF7F;
+  color: #453257;
+}
+
+.search-btn {
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  background-color: #BABABA;
+  height: 64px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+}
+
+.search-btn:hover {
+  background-color: #D5EF7F;
+}
+
+.search-img-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #453257;
+  margin-top: 15px;
+}
+
+.search-btn-info {
+  padding: 0;
+  font-size: 10px;
+  margin-top: 2px;
+  color: #8560A9;
+}
+
+.search-btn-container {
+  padding: 10px 13px;
+}

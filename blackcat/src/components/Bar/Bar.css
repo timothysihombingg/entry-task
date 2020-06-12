@@ -1,0 +1,32 @@
+.header-bar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  background-color: #8560A9;
+  width: 100%;
+  height: 40px;
+}
+
+.bar-btn {
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  border-color: transparent;
+}
+
+#search-btn {
+  float: left;
+}
+
+#home-btn {
+  height: 24px;
+  width: 24px;
+  margin: 7px;
+  float:right;
+  border-radius: 50%;
+  background-color: white;
+  border: #8560A9 solid 1px;
+}
+
+#logo-btn {
+  margin-left: 35vw;
+}
