@@ -10,28 +10,28 @@ function Card() {
   return (
     <div className="home-card">
       <div className="user-name-container">
-        <img id="card-usr-img" alt="user profile" src={Image} />
+        <img class="card-usr-img" alt="user profile" src={Image} />
         <div className="user-name">Username</div>
         <div className="channel-name">Channel name longer</div>
       </div>
       <div>
         <div className="card-title-date">
           <div className="card-title">Activity Title Name Make it Longer May Longer than One Line</div>
-          <img id="card-time-img" alt="user profile" src={Time} />
+          <img className="card-time-img" alt="user profile" src={Time} />
           <p className="card-date">14 May 2016 - 14 May 2016</p>
           <p className="card-desc">
             [No longer than 300 chars] Vivamus sagittis, diam in lobortis, sapien arcu mattis erat, vel aliquet sem urna et risus. Ut feugiat sapien mi potenti...
           </p>
         </div>
-        {/* <img id="card-img" alt="user profile" src={Image} />  */}
+        {/* <img className="card-img" alt="user profile" src={Image} />  */}
       </div>
       <div>
         <div className="card-like">
-          <img id="card-check-img" alt="user profile" src={Check} />
+          <img className="card-check-img" alt="user profile" src={Check} />
           <p className="card-check">6 Going</p>
         </div>
         <div className="card-like">
-          <img id="card-like-img" alt="user profile" src={Like} />
+          <img className="card-like-img" alt="user profile" src={Like} />
           <p className="card-check">10 Likes</p>
         </div>
       </div>

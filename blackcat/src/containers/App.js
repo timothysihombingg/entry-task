@@ -8,6 +8,7 @@ import Search from '../components/Search/Search'
 import SearchResult from '../components/Search/SearchResult'
 import Bar from '../components/Bar/Bar'
 import Card from '../components/Home/Card'
+import Details from '../components/Details/Details'
  
 import PrivateRoute from '../utils/PrivateRoute';
 import PublicRoute from '../utils/PublicRoute';
@@ -45,7 +46,7 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PublicRoute path="/login" component={Login} />
-              <Route path="/cook" component={Card} />
+              <Route path="/cook" component={Details} />
             </Switch>
           </div>
         </div>

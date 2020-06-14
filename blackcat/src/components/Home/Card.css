@@ -5,7 +5,7 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-#card-usr-img {
+.card-usr-img {
   height: 21px;
   width: 21px;
   float: left;
@@ -17,7 +17,7 @@
   float: right;
   padding-top: 2px;
   border: #D3C1E5 solid 1px;
-  color: #D3C1E5;
+  color: #8560A9;
   border-radius: 10px;
   font-weight: 400;
   font-size: 12px;
@@ -57,7 +57,7 @@
   color: #8560A9;
 }
 
-#card-time-img {
+.card-time-img {
   height: 12px;
   width: 12px;
 }
@@ -69,12 +69,12 @@
   margin-top: 13px;
 }
 
-#card-check-img {
+.card-check-img {
   height: 12px;
   width: 9.8px;
 }
 
-#card-like-img {
+.card-like-img {
   height: 12px;
   width: 12px;
 }
@@ -92,7 +92,7 @@
   margin-right: 21px;
 }
 
-#card-img {
+.card-img {
   width: 64px;
   height: 64px;
 }
