@@ -8,10 +8,18 @@ import './DetailsBar.css'
 
 function DetailsBar() {
   return (
-    <div className="header-bar">
-      <button class="bar-btn" id="search-btn"><img src={Search} alt="search"/></button>
-      <button class="bar-btn" id="logo-btn"><img src={Logo} alt="logo"/></button>
-      <button class="bar-btn" id="home-btn"><img src={Home} alt="home"/></button>
+    <div className="details-bar">
+      <button className="details-bar-btn" id="details-search-btn">
+        <div>
+          <img src={Search} alt="search"/>Details
+        </div>
+        </button>
+      <button className="details-bar-btn" id="details-logo-btn">
+        <img src={Logo} alt="logo"/><span>Participants</span>
+        </button>
+      <button className="details-bar-btn" id="details-home-btn">
+        <img src={Home} alt="home"/><span>Comments</span>
+        </button>
     </div>
   );
 }
