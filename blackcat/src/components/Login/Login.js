@@ -31,11 +31,11 @@ function Login(props) {
         <div className="logo-header">
           <div id="head1">FIND THE MOST LOVED ACTIVITIES</div>
           <div id="head2">BLACK CAT</div>
-          <img id="logo-img" src={Logo} alt="blackcat-logo" />
+          <img src={Logo} alt="blackcat-logo" />
         </div>
         <div className="login-form">
-          <input className="input-field" type="text" {...username} autoComplete="new-password" placeholder="Email"/>
-          <input className="input-field" type="password" {...password} autoComplete="new-password" placeholder="Password"/>
+          <input type="text" {...username} autoComplete="new-password" placeholder="Email"/>
+          <input type="password" {...password} autoComplete="new-password" placeholder="Password"/>
         </div>
         </center>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />

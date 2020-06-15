@@ -4,9 +4,10 @@
   background-color: #8560A9;
   width: 100%;
   height: 40px;
+  text-align: center;
 }
 
-.bar-btn {
+.header-bar button {
   background-color: transparent;
   height: 40px;
   width: 40px;
@@ -28,5 +29,6 @@
 }
 
 #logo-btn {
-  margin-left: 35vw;
+  margin: 0 auto;
+  display: inline-block;
 }

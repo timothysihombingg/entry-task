@@ -12,6 +12,7 @@ function Details() {
         <DetailsHeader />
         <hr />
         <DetailsBar />
+        <hr />
       </div>
     </div>
   );

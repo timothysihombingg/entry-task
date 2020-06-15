@@ -5,10 +5,10 @@ import './DetailsHeader.css'
 function DetailsHeader() {
   return (
     <div className="details-header">
-      <div className="channel-name" id="channel-name-details">Channel name</div>
+      <span className="channel-name">Channel name</span>
       <div className="card-title" id="card-title-details">Activity Title Name Make it Longer May Longer than One Line</div>
       <div>
-        <img class="card-usr-img" id="card-usr-img-details" alt="user profile" src={Image} />
+        <img className="card-usr-img" id="card-usr-img-details" alt="user profile" src={Image} />
         <span className="user-name">Username</span><br/>
         <span className="activity-published">Published 2 days ago</span>
       </div>

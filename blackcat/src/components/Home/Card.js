@@ -10,16 +10,16 @@ function Card() {
   return (
     <div className="home-card">
       <div className="user-name-container">
-        <img class="card-usr-img" alt="user profile" src={Image} />
-        <div className="user-name">Username</div>
-        <div className="channel-name">Channel name longer</div>
+        <img alt="user profile" src={Image} />
+        <span className="user-name">Username</span>
+        <span className="channel-name">Channel name longer</span>
       </div>
       <div>
         <div className="card-title-date">
-          <div className="card-title">Activity Title Name Make it Longer May Longer than One Line</div>
-          <img className="card-time-img" alt="user profile" src={Time} />
-          <p className="card-date">14 May 2016 - 14 May 2016</p>
-          <p className="card-desc">
+          <div>Activity Title Name Make it Longer May Longer than One Line</div>
+          <img alt="user profile" src={Time} />
+          <span>14 May 2016 - 14 May 2016</span>
+          <p>
             [No longer than 300 chars] Vivamus sagittis, diam in lobortis, sapien arcu mattis erat, vel aliquet sem urna et risus. Ut feugiat sapien mi potenti...
           </p>
         </div>
@@ -27,12 +27,12 @@ function Card() {
       </div>
       <div>
         <div className="card-like">
-          <img className="card-check-img" alt="user profile" src={Check} />
-          <p className="card-check">6 Going</p>
+          <img alt="user profile" src={Check} />
+          <p>6 Going</p>
         </div>
         <div className="card-like">
-          <img className="card-like-img" alt="user profile" src={Like} />
-          <p className="card-check">10 Likes</p>
+          <img alt="user profile" src={Like} />
+          <p>10 Likes</p>
         </div>
       </div>
     </div>

@@ -1,3 +1,7 @@
 .details-header {
   padding: 10px;
 }
+
+hr {
+  border: #E8E8E8 solid 0.5px;
+}

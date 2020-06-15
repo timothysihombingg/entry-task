@@ -16,7 +16,7 @@
   padding: 10px 0 10px 0;
 }
 
-.date-btn, .channel-btn {
+.search-btn-container button, .search-btn-container button {
   background-color: transparent;
   margin-bottom: 2px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -28,11 +28,11 @@
   margin: 0 0 8px 5px;
 }
 
-.channel-btn {
+.search-btn-container button {
   border: white solid 1px;
 }
 
-.date-btn:hover, .channel-btn:hover {
+.search-btn-container button:hover, .search-btn-container button:hover {
   background-color: #D5EF7F;
   color: #453257;
 }
@@ -51,14 +51,14 @@
   background-color: #D5EF7F;
 }
 
-.search-img-btn {
+.search-btn div {
   font-size: 16px;
   font-weight: 600;
   color: #453257;
   margin-top: 15px;
 }
 
-.search-btn-info {
+.search-btn p {
   padding: 0;
   font-size: 10px;
   margin-top: 2px;

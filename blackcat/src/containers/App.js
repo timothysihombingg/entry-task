@@ -15,6 +15,7 @@ import PublicRoute from '../utils/PublicRoute';
 import { getToken, removeUserSession, setUserSession } from '../utils/Common';
 
 import './App.css'
+import DetailsHeader from '../components/Details/DetailsHeader';
  
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -46,7 +47,12 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PublicRoute path="/login" component={Login} />
-              <Route path="/cook" component={Details} />
+              <Route path="/details" component={Details} />
+              <Route path="/search" component={Search} />
+              <Route path="/searchresult" component={SearchResult} />
+              <Route path="/card" component={Card} />
+              <Route path="/detailsheader" component={DetailsHeader} />
+              <Route path="/bar" component={Bar} />
             </Switch>
           </div>
         </div>
