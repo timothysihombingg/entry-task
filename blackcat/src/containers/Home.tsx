@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react'
  
-function Dashboard(props) {
+function Home() {
  
   return (
     <div>
@@ -9,4 +9,4 @@ function Dashboard(props) {
   );
 }
  
-export default Dashboard;
+export default Home;

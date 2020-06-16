@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 
 import Home from '../../assets/svgs/home.svg'
 import Logo from '../../assets/svgs/logo-cat.svg'

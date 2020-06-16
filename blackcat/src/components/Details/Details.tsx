@@ -1,8 +1,9 @@
-import React from 'react';
+import * as React from 'react'
 import './Details.css'
 import DetailsHeader from './DetailsHeader'
 import DetailsBar from './DetailsBar'
 import Bar from '../Bar/Bar'
+import When from './When'
 
 function Details() {
   return (
@@ -13,6 +14,9 @@ function Details() {
         <hr />
         <DetailsBar />
         <hr />
+        <When />
+        <hr />
+        
       </div>
     </div>
   );

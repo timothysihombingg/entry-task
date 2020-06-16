@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react'
 import Image from '../../assets/images/gmap.png';
 import Time from '../../assets/svgs/time.svg';
 import Check from '../../assets/svgs/check-outline.svg';

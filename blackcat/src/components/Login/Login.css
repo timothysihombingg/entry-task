@@ -22,6 +22,10 @@
   margin-bottom: 16px;
 }
 
+.logo-header, .login-form {
+  text-align: center;
+}
+
 .logo-header img {
   border-radius: 50%;
   padding: 5px;
