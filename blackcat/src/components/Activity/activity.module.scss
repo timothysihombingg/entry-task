@@ -1,0 +1,79 @@
+@import '../../styles/colors';
+
+.activity {
+  padding: 16px;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      .activity-pp {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        border: 1px black solid;
+      }
+  
+      p {
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 0 0 8px;
+      }
+    }
+
+    span {
+      font-size: 12px;
+      border: 1px solid $primary-light;
+      color: $primary;
+      padding: 2px 10px 2px 10px;
+      border-radius: 10px;
+    }
+  }
+
+  h2 {
+    margin: 10px 0 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #453257;
+  }
+
+  .activity-icon {
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .activity-date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+      font-size: 12px;
+      color: $primary;
+    }
+  }
+
+  .check-like-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+      color: $primary;
+      font-size: 12px;
+      margin-right: 21px;
+    }
+  }
+}

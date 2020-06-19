@@ -3,10 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
  
 // import Login from '../components/Login/Login';
 import Login from '../pages/Login/index'
-import Home from './Home';
+import Home from '../pages/Home/index';
 import Search from '../components/Search/Search'
 import SearchResult from '../components/Search/SearchResult'
-import Card from '../components/Home/Card'
+import Card from '../components/Activity/Activity'
 import Details from '../components/Details/Details'
 
 import './App.css'

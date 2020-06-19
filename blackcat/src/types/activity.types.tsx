@@ -1,6 +1,6 @@
 import { User } from './user.types';
 
-export interface Activity {
+export interface IActivity {
   id: number;
   profile_picture: string;
   username: string;

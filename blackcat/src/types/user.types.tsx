@@ -4,6 +4,6 @@ export interface User {
   email: string;
   password: string;
   profile_picture: string;
-  likes: Array<{post_id: string}>;
-  going: Array<{post_id: string}>;
+  likes: Array<{activity_id: string}>;
+  going: Array<{activity_id: string}>;
 }
