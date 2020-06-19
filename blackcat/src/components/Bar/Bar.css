@@ -1,6 +1,6 @@
 .header-bar {
-  position: -webkit-sticky; /* Safari */
   position: sticky;
+  top: 0;
   background-color: #8560A9;
   width: 100%;
   height: 40px;

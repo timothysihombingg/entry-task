@@ -11,12 +11,12 @@ type Props = {
 const activity1: IActivity = {
   id: 1,
   profile_picture: 'haha',
-  username: 'Johan Cruyff',
-  channel_name: 'Total Football',
-  title: 'El Clasico',
-  description: 'Big match FC Barcelona vs Real Madrird',
-  start_date: '1-1-2020',
-  end_date: '1-1-2020',
+  username: 'Username',
+  channel_name: 'Channel Name',
+  title: 'Activity Title Name Make it Longer May Longer than One Line',
+  description: '[No longer than 300 chars] Vivamus sagittis, diam in lobortis, sapien arcu mattis erat, vel aliquet sem urna et risus. Ut feugiat sapien mi potenti...',
+  start_date: '1 January 2020',
+  end_date: '1 January 2020',
   start_time: '14:00',
   end_time: '16:30',
   location: 'Camp Nou',
@@ -33,6 +33,18 @@ const Home: React.FunctionComponent<Props> = ({
   return (
     <PageLayout>
       <Header />
+      <ListActivity activity1={activity1}/>
+      <hr />
+      <ListActivity activity1={activity1}/>
+      <hr />
+      <ListActivity activity1={activity1}/>
+      <hr />
+      <ListActivity activity1={activity1}/>
+      <hr />
+      <ListActivity activity1={activity1}/>
+      <hr />
+      <ListActivity activity1={activity1}/>
+      <hr />
       <ListActivity activity1={activity1}/>
       <hr />
     </PageLayout>

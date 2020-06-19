@@ -34,7 +34,7 @@ const Activity: React.FunctionComponent<Props> = ({
         <Time className={cx('activity-icon')}/>
         <span>{activity1.start_date} {activity1.start_time} - {activity1.end_date} {activity1.end_time}</span>
       </div>
-      <p>[No longer than 300 chars] Vivamus sagittis, diam in lobortis, sapien arcu mattis erat, vel aliquet sem urna et risus. Ut feugiat sapien mi potenti...</p>
+      <p>{activity1.description}</p>
       <div className={cx('check-like-container')}>
         <Check className={cx('activity-icon')}/>
         <span>{totalParticipants} Going</span>
