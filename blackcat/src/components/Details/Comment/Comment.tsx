@@ -4,7 +4,6 @@ import classname from 'classnames/bind';
 import { User } from '../../../types/user.types';
 import { ReactComponent as Reply } from '../../../assets/svgs/reply.svg';
 
-
 const cx = classname.bind(style);
 
 interface Props {

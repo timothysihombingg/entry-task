@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classname from 'classnames/bind';
 import styles from './detail.module.scss';
 import { IActivity } from '../../types/activity.types';
@@ -37,6 +37,17 @@ const activity1: IActivity = {
 }
 
 const Detail: React.FunctionComponent<{}> = () => {
+  // const [activity, setActivity] = useState('')
+
+  useEffect(() => {
+    const fecthData = async () => {
+      fetch("http://localhost:4000/activities")
+        .then(res => res.json())
+        // .then(res => setActivities(res))
+      }
+      fecthData();
+    }
+  );
   return (
     <PageLayout>
       <Bar />

@@ -6,6 +6,7 @@ import { ReactComponent as People } from '../../assets/svgs/people.svg';
 import { ReactComponent as Time } from '../../assets/svgs/time.svg';
 import { ReactComponent as Check } from '../../assets/svgs/check-outline.svg';
 import { ReactComponent as Like } from '../../assets/svgs/like-outline.svg';
+import { useHistory } from 'react-router-dom';
 
 const cx = classnames.bind(styles);
 
@@ -18,9 +19,12 @@ const Activity: React.FunctionComponent<Props> = ({
 }) => {
   const totalParticipants = activity1.participants.length;
   const totalLikes = activity1.likes.length;
+  const history = useHistory()
 
   return (
-    <div className={cx('activity')}>
+    <div className={cx('activity')} onClick={() => {
+      history.push('/details/'+activity1.id)
+    }}>
       <header>
         <div>
           <People className={cx('activity-pp')}/>

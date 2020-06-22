@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageLayout from '../../containers/PageLayout';
 import classnames from 'classnames/bind';
 import styles from './login.module.scss';
+import { useHistory } from 'react-router-dom';
 import { ReactComponent as AppLogo } from '../../assets/svgs/logo-cat.svg';
 import { ReactComponent as UserIcon } from '../../assets/svgs/user.svg';
 import { ReactComponent as PasswordIcon } from '../../assets/svgs/password.svg'; 
@@ -9,6 +10,7 @@ import { ReactComponent as PasswordIcon } from '../../assets/svgs/password.svg';
 const cx = classnames.bind(styles)
 
 const Login: React.FunctionComponent<{}> = () => {
+  const history = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -39,8 +41,20 @@ const Login: React.FunctionComponent<{}> = () => {
       <section className={cx('login-submit')}>
         <button
           onClick={() => {
-            console.log(email);
-            console.log(password);
+            fetch('http://localhost:4000/login', {
+              method: 'post',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                email: email,
+                password: password
+              })
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data === "success") {
+                history.push('/home')
+              }
+            })
           }}>
           SIGN IN
         </button>

@@ -44,7 +44,7 @@ app.post('/login', (req, res) => {
   if (!currentUser) {
     res.status(404).json('email and password did not match');
   } else {
-    res.json(currentUser);
+    res.json("success");
   }
 })
 
