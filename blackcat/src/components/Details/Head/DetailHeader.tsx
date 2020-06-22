@@ -1,24 +1,47 @@
 import React from 'react';
 import style from './detailheader.module.scss';
 import classname from 'classnames/bind';
+import { IActivity } from '../../../types/activity.types';
+import { ReactComponent as Info } from '../../../assets/svgs/info-outline.svg';
+import { ReactComponent as Comment } from '../../../assets/svgs/comment-outline.svg';
+import { ReactComponent as People } from '../../../assets/svgs/people-outline.svg';
 
 const cx = classname.bind(style);
 
-const DetailHeader: React.FunctionComponent<{}> = () => {
+interface Props {
+  activity1: IActivity;
+}
+
+const DetailHeader: React.FunctionComponent<Props> = ({
+  activity1
+}) => {
   return (
-    <div>
-      <span className="channel-name">Channel name</span>
-      <div className="card-title" id="card-title-details">Activity Title Name Make it Longer May Longer than One Line</div>
-      <div>
-        {/* <img className="card-usr-img" id="card-usr-img-details" alt="user profile" src={Image} /> */}
-        <span className="user-name">Username</span><br/>
-        <span className="activity-published">Published 2 days ago</span>
+    <div className={cx('details-header')}>
+      <span>{activity1.channel_name}</span>
+      <h2>{activity1.title}</h2>
+      <div className={cx('user-pp-container')}>
+        <Info className={cx('user-img')}/>
+        <div>
+          <h5>{activity1.username}</h5>
+          <p>Published 2 days ago</p>
+        </div>
       </div>
-      <div className="details-bar">
-        <button id="details-detail-btn">Details</button>
-        <button id="details-comments-btn">Comments</button>
-        <button id="details-participants-btn">Participants</button>
+      <hr />
+      <div className={cx('details-bar')}>
+        <div className={cx('bar-btn')}>
+          <Info className={cx('bar-img')}/>
+          <button>Details</button>
+        </div>
+        <div className={cx('bar-btn')}>
+          <Comment className={cx('bar-img')}/>
+          <button>Comments</button>
+        </div>
+        <div className={cx('bar-btn')}>
+          <People className={cx('bar-img')}/>
+          <button>Participants</button>
+        </div>
     </div>
+    <hr />
     </div>
   );
 };

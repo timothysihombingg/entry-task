@@ -18,7 +18,6 @@ const Activity: React.FunctionComponent<Props> = ({
 }) => {
   const totalParticipants = activity1.participants.length;
   const totalLikes = activity1.likes.length;
-  
 
   return (
     <div className={cx('activity')}>
