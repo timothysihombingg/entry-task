@@ -1,14 +1,35 @@
-.activity-date p {
-  border-left: #8560A9 solid 4px;
-  border-radius: 2px;
-  color: #8560A9;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  padding-left: 4px;
+@import '../../../styles/colors';
+
+.time-place {
+  padding: 0px 16px 16px 16px;
 }
 
-.activity-location p {
+.time-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  
+  .time-img {
+    height: 13.8px;
+    width: 16px;
+    fill: $complement;
+    margin-right: 5px;
+  }
+
+  span {
+    font-size: 16px;
+    color: #67616D;
+  }
+
+  p {
+    font-size: 32px;
+    color: #AECB4F;
+    margin: 10px;
+  }
+}
+
+.time-place-header {
   border-left: #8560A9 solid 4px;
   border-radius: 2px;
   color: #8560A9;
@@ -16,4 +37,22 @@
   font-weight: 600;
   font-size: 16px;
   padding-left: 4px;
+  margin: 16.5px 0 10px 0;
+}
+
+.activity-location {
+  h5 {
+    margin: 0;
+  }
+
+  span {
+    font-size: 14px;
+  }
+
+  img {
+    margin-top: 8px;
+    height: 88px;
+    width: 288px;
+    border-radius: 5px;
+  }
 }

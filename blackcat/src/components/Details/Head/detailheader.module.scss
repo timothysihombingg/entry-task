@@ -2,7 +2,11 @@
 
 .details-header {
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
+
+  p {
+    font-size: 14px;
+  }
 
   span {
     font-size: 12px;

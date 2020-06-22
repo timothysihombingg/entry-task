@@ -41,6 +41,10 @@ const DetailHeader: React.FunctionComponent<Props> = ({
           <button>Participants</button>
         </div>
     </div>
+    <hr/>
+    <p>
+      {activity1.description}
+    </p>
     <hr />
     </div>
   );
