@@ -23,7 +23,6 @@ const activity1: IActivity = {
   address: 'Barcelona, Spain',
   participants: [],
   comments: [],
-  going: [],
   likes: []
 }
 

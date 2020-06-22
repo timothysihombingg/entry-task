@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "username": "Lionel Messi",
+    "email": "lionel.messi@gmail.com",
+    "password": "password",
+    "profile_picture": "https://i.pravatar.cc/300?1143",
+    "likes": [],
+    "going": []
+  },
+  {
+    "id": 2,
+    "username": "Cristiano Ronaldo",
+    "email": "cristiano.ronaldo@gmail.com",
+    "password": "password",
+    "profile_picture": "https://i.pravatar.cc/300?1144",
+    "likes": [],
+    "going": []
+  },
+  {
+    "id": 3,
+    "username": "Neymar Jr",
+    "email": "neymar.jr@gmail.com",
+    "password": "password",
+    "profile_picture": "https://i.pravatar.cc/300?1145",
+    "likes": [],
+    "going": []
+  },
+  {
+    "id": 4,
+    "username": "Andres Iniesta",
+    "email": "andres.iniesta@gmail.com",
+    "password": "password",
+    "profile_picture": "https://i.pravatar.cc/300?1146",
+    "likes": [],
+    "going": []
+  },
+  {
+    "id": 5,
+    "username": "Antoinne Griezmann",
+    "email": "antoinne.griezmann@gmail.com",
+    "password": "password",
+    "profile_picture": "https://i.pravatar.cc/300?1147",
+    "likes": [],
+    "going": []
+  }
+]

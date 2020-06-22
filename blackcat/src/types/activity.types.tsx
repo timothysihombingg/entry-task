@@ -13,11 +13,17 @@ export interface IActivity {
   end_time: string;
   location: string;
   address: string;
-  participants: Array<User>;
+  participants: Array<{
+    username: string;
+    profile_picture: string;
+  }>;
+  likes: Array<{
+    username: string;
+    profile_picture: string;
+  }>;
   comments: Array<{
-    user: User,
+    username: string,
+    profile_picture: string,
     comment: string
   }>;
-  going: Array<User>;
-  likes: Array<User>;
 }

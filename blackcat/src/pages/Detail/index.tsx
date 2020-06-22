@@ -7,6 +7,7 @@ import Bar from '../../components/Bar/Bar';
 import Header from '../../components/Details/Head/DetailHeader';
 import TimePlace from '../../components/Details/TimePlace/TimePlace';
 import Participants from '../../components/Details/Participants/Participants';
+import Comment from '../../components/Details/Comment/Comment';
 
 const cx = classname.bind(styles)
 
@@ -24,16 +25,14 @@ const activity1: IActivity = {
   location: 'Camp Nou',
   address: 'Barcelona, Spain',
   participants: [{
-    id: 1,
     username: 'Username',
-    email: 'email@shopee.com',
-    password: 'password',
-    profile_picture: 'https://i.pravatar.cc/300?1292',
-    likes: [],
-    going: [],
+    profile_picture: 'https://i.pravatar.cc/300?1292'
   }],
-  comments: [],
-  going: [],
+  comments: [{
+    username: 'Lionel Messi',
+    profile_picture: 'https://i.pravatar.cc/300?1291',
+    comment: 'I really enjoyed the activity!'
+  }],
   likes: []
 }
 
@@ -44,6 +43,7 @@ const Detail: React.FunctionComponent<{}> = () => {
       <Header activity1={activity1} />
       <TimePlace activity1={activity1} />
       <Participants activity1={activity1} />
+      <Comment comment={activity1.comments[0]}/>
     </PageLayout>
   );
 };
