@@ -6,6 +6,7 @@ import PageLayout from '../../containers/PageLayout';
 import Bar from '../../components/Bar/Bar';
 import Header from '../../components/Details/Head/DetailHeader';
 import TimePlace from '../../components/Details/TimePlace/TimePlace';
+import Participants from '../../components/Details/Participants/Participants';
 
 const cx = classname.bind(styles)
 
@@ -22,7 +23,15 @@ const activity1: IActivity = {
   end_time: '16:30',
   location: 'Camp Nou',
   address: 'Barcelona, Spain',
-  participants: [],
+  participants: [{
+    id: 1,
+    username: 'Username',
+    email: 'email@shopee.com',
+    password: 'password',
+    profile_picture: 'https://i.pravatar.cc/300?1292',
+    likes: [],
+    going: [],
+  }],
   comments: [],
   going: [],
   likes: []
@@ -33,7 +42,8 @@ const Detail: React.FunctionComponent<{}> = () => {
     <PageLayout>
       <Bar />
       <Header activity1={activity1} />
-      <TimePlace />
+      <TimePlace activity1={activity1} />
+      <Participants activity1={activity1} />
     </PageLayout>
   );
 };

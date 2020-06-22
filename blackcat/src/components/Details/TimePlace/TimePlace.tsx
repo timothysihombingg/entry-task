@@ -2,12 +2,19 @@ import React from 'react';
 import style from './timeplace.module.scss';
 import classname from 'classnames/bind';
 import Map from '../../../assets/images/gmap.png';
+import { IActivity } from '../../../types/activity.types';
 import { ReactComponent as DateFrom } from '../../../assets/svgs/date-from.svg';
 import { ReactComponent as DateTo } from '../../../assets/svgs/date-to.svg';
 
 const cx = classname.bind(style);
 
-const TimePlace: React.FunctionComponent<{}> = () => {
+interface Props {
+  activity1: IActivity;
+}
+
+const TimePlace: React.FunctionComponent<Props> = ({
+  activity1
+}) => {
   return (
     <div className={cx('time-place')}>
       <div>
@@ -15,24 +22,26 @@ const TimePlace: React.FunctionComponent<{}> = () => {
         <div className={cx('time-container')}>
           <div>
             <DateFrom className={cx('time-img')}/>
-            <span>15 April 2020</span>
-            <p>8:30 AM</p>
+            <span>{activity1.start_date}</span>
+            <p>{activity1.start_time}</p>
           </div>
           <div>
             <DateTo className={cx('time-img')}/>
-            <span>15 April 2020</span>
-            <p>8:30 AM</p>
+            <span>{activity1.end_date}</span>
+            <p>{activity1.end_time}</p>
           </div>
         </div>
       </div>
       <hr/>
       <div className={cx('activity-location')}>
         <p className={cx('time-place-header')}>Where</p>
-        <h5>Marina Bay Sands</h5>
-        <span>10 Bayfront Ave, S018956</span>
+        <h5>{activity1.location}</h5>
+        <span>{activity1.address}</span>
         <img src={Map} alt="location" />
       </div>
+      <hr/>
     </div>
+    
   );
 };
 

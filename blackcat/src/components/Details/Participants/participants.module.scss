@@ -1,0 +1,33 @@
+.participants-comp {
+  padding: 16px 16px 16px 16px;
+
+  .participants-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    img {
+      height: 24px;
+      width: 24px;
+      border-radius: 100%;
+      margin-right: 7px;
+    }
+
+    span {
+      color: #67616D;
+      font-size: 12px;
+      margin: 0 15px 0 5px;
+    }
+  }
+
+  hr {
+    background-color: #E8E8E8;
+    border: none;
+    height: 1px;
+  }
+}
+
+.participants-icon {
+  height: 12px;
+  width: 12px;
+}

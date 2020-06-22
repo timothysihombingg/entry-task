@@ -1,7 +1,12 @@
 @import '../../../styles/colors';
 
 .time-place {
-  padding: 0px 16px 16px 16px;
+  padding: 0px 16px 0px 16px;
+  hr {
+    background-color: #E8E8E8;
+    border: none;
+    height: 1px;
+  }
 }
 
 .time-container {
@@ -50,7 +55,7 @@
   }
 
   img {
-    margin-top: 8px;
+    margin: 8px 0 8px 0;
     height: 88px;
     width: 288px;
     border-radius: 5px;
