@@ -20,7 +20,7 @@ const DetailHeader: React.FunctionComponent<Props> = ({
       <span>{activity1.channel_name}</span>
       <h2>{activity1.title}</h2>
       <div className={cx('user-pp-container')}>
-        <Info className={cx('user-img')}/>
+        <img src={activity1.profile_picture} className={cx('user-img')}/>
         <div>
           <h5>{activity1.username}</h5>
           <p>Published 2 days ago</p>

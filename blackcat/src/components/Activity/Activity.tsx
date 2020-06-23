@@ -27,7 +27,7 @@ const Activity: React.FunctionComponent<Props> = ({
     }}>
       <header>
         <div>
-          <People className={cx('activity-pp')}/>
+          <img src={activity1.profile_picture} className={cx('activity-pp')}/>
           <p>{activity1.username}</p>
         </div>
         <span>{activity1.channel_name}</span>
