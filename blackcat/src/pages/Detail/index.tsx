@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import classname from 'classnames/bind';
 import styles from './detail.module.scss';
 import { IActivity } from '../../types/activity.types';
@@ -37,13 +38,14 @@ const activity1: IActivity = {
 }
 
 const Detail: React.FunctionComponent<{}> = () => {
-  // const [activity, setActivity] = useState('')
+  const [activity, setActivity] = useState(activity1)
+  let { id } = useParams();
 
   useEffect(() => {
     const fecthData = async () => {
-      fetch("http://localhost:4000/activities")
+      fetch("http://localhost:4000/activity/" + id)
         .then(res => res.json())
-        // .then(res => setActivities(res))
+        .then(res => setActivity(res))
       }
       fecthData();
     }
@@ -51,10 +53,12 @@ const Detail: React.FunctionComponent<{}> = () => {
   return (
     <PageLayout>
       <Bar />
-      <Header activity1={activity1} />
-      <TimePlace activity1={activity1} />
-      <Participants activity1={activity1} />
-      <Comment comment={activity1.comments[0]}/>
+      <Header activity1={activity} />
+      <TimePlace activity1={activity} />
+      <Participants activity1={activity} />
+      {activity.comments.map((comment) =>
+        <Comment comment={comment}/>
+      )}
     </PageLayout>
   );
 };

@@ -15,22 +15,35 @@ interface Props {
 const Participants: React.FunctionComponent<Props> = ({
   activity1
 }) => {
+  var participantsArr;
+  if (activity1.participants.length <=  8) {
+    participantsArr = activity1.participants;
+  } else {
+    participantsArr = activity1.participants.slice(0,8);
+  }
+
+  var likesArr;
+  if (activity1.likes.length <=  8) {
+    likesArr = activity1.likes;
+  } else {
+    likesArr = activity1.likes.slice(0,8);
+  }
+
   return (
     <div className={cx('participants-comp')}>
       <div className={cx('participants-container')}>
         <Check className={cx('participants-icon')}/>
         <span>{activity1.participants.length} Going</span>
-        <img src={activity1.participants[0].profile_picture} />
-        <img src={activity1.participants[0].profile_picture} />
-        <img src={activity1.participants[0].profile_picture} />
+        {participantsArr.map((participant) =>
+          <img src={participant.profile_picture} />)}
       </div>
       <hr />
       <div className={cx('participants-container')}>
         <Like className={cx('participants-icon')}/>
         <span>{activity1.likes.length} Likes</span>
-        <img src={activity1.participants[0].profile_picture} />
-        <img src={activity1.participants[0].profile_picture} />
-        <img src={activity1.participants[0].profile_picture} />
+        {likesArr.map((like) =>
+          <img src={like.profile_picture} />
+        )}
       </div>
       <br/> <hr />
     </div>

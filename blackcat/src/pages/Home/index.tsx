@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageLayout from '../../containers/PageLayout';
 import Activity from '../../components/Activity/Activity';
-import Header from '../../components/Bar/Bar'
+import Header from '../../components/Bar/Bar';
 
 const Home: React.FunctionComponent<{}> = () => {
   const [activities, setActivities] = useState([]);

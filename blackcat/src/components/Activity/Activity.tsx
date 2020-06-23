@@ -23,7 +23,7 @@ const Activity: React.FunctionComponent<Props> = ({
 
   return (
     <div className={cx('activity')} onClick={() => {
-      history.push('/details/'+activity1.id)
+      history.push('/activity/'+activity1.id)
     }}>
       <header>
         <div>
