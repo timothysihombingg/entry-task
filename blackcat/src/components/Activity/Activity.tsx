@@ -39,9 +39,35 @@ const Activity: React.FunctionComponent<Props> = ({
       </div>
       <p>{activity1.description}</p>
       <div className={cx('check-like-container')}>
-        <Check className={cx('activity-icon')}/>
+        <Check className={cx('activity-icon')} onClick={() => {
+          fetch('http://localhost:4000/participate', {
+            method: 'put',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                activityid: activity1.id, 
+                username: activity1.username,  
+                profile_picture: activity1.profile_picture
+              })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data === "success") {
+              history.push('/home')
+            }
+          })
+        }}/>
         <span>{totalParticipants} Going</span>
-        <Like className={cx('activity-icon')}/>
+        <Like className={cx('activity-icon')} onClick={() => {
+          fetch('http://localhost:4000/like', {
+            method: 'put',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                activityid: activity1.id, 
+                username: activity1.username,  
+                profile_picture: activity1.profile_picture
+              })
+          })
+        }}/>
         <span>{totalLikes} Likes</span>
       </div>
     </div>  

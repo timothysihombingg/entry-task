@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Login from '../pages/Login/index'
 import Home from '../pages/Home/index';
-import Details from '../pages/Detail/index'
- 
+import Details from '../pages/Detail/index';
+
 function App() {
   return (
     <div className="App">
