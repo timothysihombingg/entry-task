@@ -1,23 +1,30 @@
 import * as actionType from './constants';
 import { IActivity } from '../../types/activity.types';
 import { Dispatch } from 'redux';
+import { IPaginationParam } from '../../types/service/common_param.types'
 
-export const requestActivities = (dispatch: Dispatch) => {
-  dispatch(setPending());
-  fetch("http://localhost:4000/activities")
-    .then(res => res.json())
-    .then(data => dispatch({
-      type: actionType.REQUEST_POST_SUCCESS,
-      payload: data
-    }))
-    .catch(error => dispatch({
-      type: actionType.REQUEST_POST_FAILED,
-      payload: error
-    }))
-}
+export const finishFetchPost = (posts: IActivity[]) => ({
+  type: actionType.FINISH_FETCH_POST,
+  payload: {
+    posts
+  }
+})
 
-function setPending() {
-  return {
-    type: actionType.REQUEST_POST_PENDING
+export const setLoading = (status: boolean) => ({
+  type: actionType.SET_LOADING,
+  payload: {
+    status
+  }
+})
+
+export const startFetchPost = (
+  param: IPaginationParam = { page: 1, limit: 5 }
+) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(setLoading(true));
+    fetch("http://localhost:4000/activities")
+      .then(res => res.json())
+      .then(data => dispatch(finishFetchPost(data as IActivity[])));
+    dispatch(setLoading(false));
   }
 }

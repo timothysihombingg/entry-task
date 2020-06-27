@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import styles from './activity.module.scss';
-import { IActivity } from '../../types/activity.types'
-import { ReactComponent as People } from '../../assets/svgs/people.svg';
+import { IActivity } from '../../types/activity.types';
 import { ReactComponent as Time } from '../../assets/svgs/time.svg';
 import { ReactComponent as Check } from '../../assets/svgs/check-outline.svg';
 import { ReactComponent as Like } from '../../assets/svgs/like-outline.svg';
@@ -11,64 +10,62 @@ import { useHistory } from 'react-router-dom';
 const cx = classnames.bind(styles);
 
 interface Props {
-  activity1: IActivity;
+  activity: IActivity;
+  isLiked?: boolean;
+  isParticipated?: boolean;
+  // likePost: Function;
+  // participatePost: Function;
 }
 
 const Activity: React.FunctionComponent<Props> = ({
-  activity1
+  activity,
+  isLiked = false,
+  isParticipated = false,
+  // likePost,
+  // participatePost
 }) => {
-  const totalParticipants = activity1.participants.length;
-  const totalLikes = activity1.likes.length;
+  const totalParticipants = isParticipated ? activity.participants.length + 1 : activity.participants.length;
+  const totalLikes = isLiked ? activity.likes.length + 1 : activity.likes.length;
+
+  const participateText = isParticipated ? 'I am going' : 'Going';
+  const likeText = isLiked ? 'I like it' : 'Likes';
+
+  const participateComponent = isParticipated ? (
+    <Check className={cx('activity-icon')} />
+  ) : (
+    <Check className={cx('activity-icon')} />
+  );
+
+  const likeComponent = isLiked ? (
+    <Like className={cx('activity-icon')} />
+  ) : (
+    <Like className={cx('activity-icon')} />
+  );
+
   const history = useHistory()
 
   return (
-    <div className={cx('activity')} onClick={() => {
-      history.push('/activity/'+activity1.id)
-    }}>
+    <div className={cx('activity')}>
       <header>
         <div>
-          <img src={activity1.profile_picture} className={cx('activity-pp')}/>
-          <p>{activity1.username}</p>
+          <img src={activity.profile_picture} className={cx('activity-pp')}/>
+          <p onClick={() => {
+            history.push('/activity/'+activity.id)
+          }}>{activity.username}</p>
         </div>
-        <span>{activity1.channel_name}</span>
+        <span>{activity.channel_name}</span>
       </header>
-      <h2>{activity1.title}</h2>
+      <h2>{activity.title}</h2>
       <div className={cx('activity-date')}>
         <Time className={cx('activity-icon')}/>
-        <span>{activity1.start_date} {activity1.start_time} - {activity1.end_date} {activity1.end_time}</span>
+        <span>{activity.start_date} {activity.start_time} - {activity.end_date} {activity.end_time}</span>
       </div>
-      <p>{activity1.description}</p>
+      <p>{activity.description}</p>
       <div className={cx('check-like-container')}>
-        <Check className={cx('activity-icon')} onClick={() => {
-          fetch('http://localhost:4000/participate', {
-            method: 'put',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({
-                activityid: activity1.id, 
-                username: activity1.username,  
-                profile_picture: activity1.profile_picture
-              })
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data === "success") {
-              history.push('/home')
-            }
-          })
-        }}/>
-        <span>{totalParticipants} Going</span>
-        <Like className={cx('activity-icon')} onClick={() => {
-          fetch('http://localhost:4000/like', {
-            method: 'put',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({
-                activityid: activity1.id, 
-                username: activity1.username,  
-                profile_picture: activity1.profile_picture
-              })
-          })
-        }}/>
-        <span>{totalLikes} Likes</span>
+        {participateComponent}
+        <span>{totalParticipants} {participateText}</span>
+        {likeComponent}
+        <span>{totalLikes} {likeText}</span>
       </div>
     </div>  
   );

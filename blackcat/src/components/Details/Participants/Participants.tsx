@@ -5,7 +5,6 @@ import { IActivity } from '../../../types/activity.types';
 import { ReactComponent as Check } from '../../../assets/svgs/check-outline.svg';
 import { ReactComponent as Like } from '../../../assets/svgs/like-outline.svg';
 
-
 const cx = classname.bind(style);
 
 interface Props {

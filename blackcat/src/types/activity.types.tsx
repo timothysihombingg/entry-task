@@ -1,5 +1,3 @@
-import { User } from './user.types';
-
 export interface IActivity {
   id: number;
   profile_picture: string;

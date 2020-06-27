@@ -3,6 +3,7 @@ import * as React from 'react';
 import Home from '../../assets/svgs/home.svg'
 import Logo from '../../assets/svgs/logo-cat.svg'
 import Search from '../../assets/svgs/search.svg'
+
 import { useHistory } from 'react-router-dom'
 
 import './Bar.css'

@@ -3,56 +3,55 @@ import PageLayout from '../../containers/PageLayout';
 import Activity from '../../components/Activity/Activity';
 import Header from '../../components/Bar/Bar';
 import { IActivity } from '../../types/activity.types';
-import { postState } from '../../modules/posts/reducer';
-import { User } from '../../types/user.types';
-import { requestActivities } from '../../modules/posts/action';
+import { IPostState } from '../../modules/posts/reducer';
+import * as postActions from '../../modules/posts/action';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-const mapDispatchtoProps = (dispatch: Dispatch) => {
-  return {
-    onRequestPosts: () => requestActivities(dispatch)
-  }
-}
+// const mapDispatchtoProps = (dispatch: Dispatch) => {
+//   return {
+//     onRequestPosts: () => requestActivities(dispatch)
+//   }
+// }
 
 interface IDispatchToProps {
-  onRequestPosts: Function
+  startFetchPost: Function
 };
 
 interface IMapStateToProps {
-  activities: IActivity[], isPending: boolean, error: string
+  activities: IActivity[], 
+  loading: boolean
 }
 
 type TProps = IDispatchToProps & IMapStateToProps
 
-const mapStatetoProps = (state: postState) => {
+const mapStatetoProps = (state: IPostState) => {
   return {
-    activities: state.activities,
-    isPending: state.isPending,
-    error: state.error
+    activities: state.posts,
+    loading: state.loading
   }
 }
 
 const Home: React.FunctionComponent<TProps> = ({
-  onRequestPosts, activities, isPending, error
-}) => {
+  startFetchPost, activities, loading
+}: TProps) => {
+
   useEffect(() => {
-    onRequestPosts();
-  }, [activities]);
+    // onRequestPosts();
+    startFetchPost()
+    }, [startFetchPost]);
+  // }
+  // , [activities, isPending]);
 
   return (
     <PageLayout>
       <Header />
-      {activities.map(activity => (
-        <div>
-          <Activity activity1={activity}/>
-          <hr />
-        </div>
-      ))}
+        {activities.map(post => (
+          <Activity activity={post}/>
+        ))}
     </PageLayout>
   );
 };
 
-
-export default connect(mapStatetoProps, mapDispatchtoProps)(Home);
+export default connect(mapStatetoProps, {...postActions})(Home);
 // export default connect(mapStatetoProps, {requestActivities})(Home);
