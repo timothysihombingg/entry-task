@@ -8,9 +8,9 @@ import createLogger from 'redux-logger';
 import './styles/main.scss';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import postReducer from './modules/posts/reducer'
+import reducers from './modules'
 
-const store = createStore(postReducer, applyMiddleware(thunkMiddleware))
+const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 ReactDOM.render(
   <React.StrictMode>

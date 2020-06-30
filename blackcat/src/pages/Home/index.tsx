@@ -3,10 +3,11 @@ import PageLayout from '../../containers/PageLayout';
 import Activity from '../../components/Activity/Activity';
 import Header from '../../components/Bar/Bar';
 import { IActivity } from '../../types/activity.types';
-import { IPostState } from '../../modules/posts/reducer';
+import { RootState } from '../../modules';
 import * as postActions from '../../modules/posts/action';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import * as userActions from '../../modules/user/action';
+import UserAction from '../../modules/user/constants';
 
 // const mapDispatchtoProps = (dispatch: Dispatch) => {
 //   return {
@@ -15,31 +16,49 @@ import { Dispatch } from 'redux';
 // }
 
 interface IDispatchToProps {
-  startFetchPost: Function
+  startFetchPost: Function,
+  likePost: Function,
+  fetchParticipated: Function,
+  fetchLiked: Function,
+  participatePost: Function
 };
 
 interface IMapStateToProps {
   activities: IActivity[], 
-  loading: boolean
+  loading: boolean,
+  likes: number[],
+  participated: number[],
 }
 
 type TProps = IDispatchToProps & IMapStateToProps
 
-const mapStatetoProps = (state: IPostState) => {
+const mapStatetoProps = (state: RootState) => {
   return {
-    activities: state.posts,
-    loading: state.loading
+    activities: state.post.posts,
+    loading: state.post.loading,
+    likes: state.user.liked,
+    participated: state.user.participated
   }
 }
 
 const Home: React.FunctionComponent<TProps> = ({
-  startFetchPost, activities, loading
+  startFetchPost,
+  likePost,
+  fetchParticipated,
+  fetchLiked,
+  participatePost,
+  activities,
+  loading,
+  likes,
+  participated
 }: TProps) => {
 
   useEffect(() => {
     // onRequestPosts();
-    startFetchPost()
-    }, [startFetchPost]);
+    fetchParticipated();
+    fetchLiked();
+    startFetchPost();
+  }, [startFetchPost]);
   // }
   // , [activities, isPending]);
 
@@ -47,11 +66,17 @@ const Home: React.FunctionComponent<TProps> = ({
     <PageLayout>
       <Header />
         {activities.map(post => (
-          <Activity activity={post}/>
+          <Activity 
+            activity={post}
+            isLiked={likes.includes(post.id)}
+            isParticipated={participated.includes(post.id)}
+            likePost={likePost}
+            participatePost={participatePost}
+          />
         ))}
     </PageLayout>
   );
 };
 
-export default connect(mapStatetoProps, {...postActions})(Home);
+export default connect(mapStatetoProps, {...postActions, ...userActions})(Home);
 // export default connect(mapStatetoProps, {requestActivities})(Home);

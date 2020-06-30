@@ -5,6 +5,8 @@ import { IActivity } from '../../types/activity.types';
 import { ReactComponent as Time } from '../../assets/svgs/time.svg';
 import { ReactComponent as Check } from '../../assets/svgs/check-outline.svg';
 import { ReactComponent as Like } from '../../assets/svgs/like-outline.svg';
+import { ReactComponent as CheckFilled } from '../../assets/svgs/check.svg';
+import { ReactComponent as LikeFilled } from '../../assets/svgs/like.svg';
 import { useHistory } from 'react-router-dom';
 
 const cx = classnames.bind(styles);
@@ -13,16 +15,16 @@ interface Props {
   activity: IActivity;
   isLiked?: boolean;
   isParticipated?: boolean;
-  // likePost: Function;
-  // participatePost: Function;
+  likePost: Function;
+  participatePost: Function;
 }
 
 const Activity: React.FunctionComponent<Props> = ({
   activity,
   isLiked = false,
   isParticipated = false,
-  // likePost,
-  // participatePost
+  likePost,
+  participatePost
 }) => {
   const totalParticipants = isParticipated ? activity.participants.length + 1 : activity.participants.length;
   const totalLikes = isLiked ? activity.likes.length + 1 : activity.likes.length;
@@ -33,13 +35,13 @@ const Activity: React.FunctionComponent<Props> = ({
   const participateComponent = isParticipated ? (
     <Check className={cx('activity-icon')} />
   ) : (
-    <Check className={cx('activity-icon')} />
+    <CheckFilled className={cx('activity-icon')} />
   );
 
   const likeComponent = isLiked ? (
     <Like className={cx('activity-icon')} />
   ) : (
-    <Like className={cx('activity-icon')} />
+    <LikeFilled className={cx('activity-icon')} />
   );
 
   const history = useHistory()
@@ -63,9 +65,9 @@ const Activity: React.FunctionComponent<Props> = ({
       <p>{activity.description}</p>
       <div className={cx('check-like-container')}>
         {participateComponent}
-        <span>{totalParticipants} {participateText}</span>
+        <span onClick={participatePost(activity.id)}>{totalParticipants} {participateText}</span>
         {likeComponent}
-        <span>{totalLikes} {likeText}</span>
+        <span onClick={likePost(activity.id)}>{totalLikes} {likeText}</span>
       </div>
     </div>  
   );
