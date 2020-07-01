@@ -33,15 +33,15 @@ const Activity: React.FunctionComponent<Props> = ({
   const likeText = isLiked ? 'I like it' : 'Likes';
 
   const participateComponent = isParticipated ? (
-    <Check className={cx('activity-icon')} />
+    <CheckFilled className={cx('activity-icon')} />    
   ) : (
-    <CheckFilled className={cx('activity-icon')} />
+    <Check className={cx('activity-icon')} />
   );
 
   const likeComponent = isLiked ? (
-    <Like className={cx('activity-icon')} />
+    <LikeFilled className={cx('activity-icon')} />    
   ) : (
-    <LikeFilled className={cx('activity-icon')} />
+    <Like className={cx('activity-icon')} />
   );
 
   const history = useHistory()
@@ -51,13 +51,13 @@ const Activity: React.FunctionComponent<Props> = ({
       <header>
         <div>
           <img src={activity.profile_picture} className={cx('activity-pp')}/>
-          <p onClick={() => {
-            history.push('/activity/'+activity.id)
-          }}>{activity.username}</p>
+          <p>{activity.username}</p>
         </div>
         <span>{activity.channel_name}</span>
       </header>
-      <h2>{activity.title}</h2>
+      <h2 onClick={() => {
+        history.push('/activity/'+activity.id)
+      }}>{activity.title}</h2>
       <div className={cx('activity-date')}>
         <Time className={cx('activity-icon')}/>
         <span>{activity.start_date} {activity.start_time} - {activity.end_date} {activity.end_time}</span>
@@ -65,9 +65,9 @@ const Activity: React.FunctionComponent<Props> = ({
       <p>{activity.description}</p>
       <div className={cx('check-like-container')}>
         {participateComponent}
-        <span onClick={participatePost(activity.id)}>{totalParticipants} {participateText}</span>
+        <span onClick={() => participatePost(activity.id)} >{totalParticipants} {participateText}</span>
         {likeComponent}
-        <span onClick={likePost(activity.id)}>{totalLikes} {likeText}</span>
+        <span onClick={() => likePost(activity.id)} >{totalLikes} {likeText}</span>
       </div>
     </div>  
   );

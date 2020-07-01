@@ -5,15 +5,8 @@ import Header from '../../components/Bar/Bar';
 import { IActivity } from '../../types/activity.types';
 import { RootState } from '../../modules';
 import * as postActions from '../../modules/posts/action';
-import { connect } from 'react-redux';
 import * as userActions from '../../modules/user/action';
-import UserAction from '../../modules/user/constants';
-
-// const mapDispatchtoProps = (dispatch: Dispatch) => {
-//   return {
-//     onRequestPosts: () => requestActivities(dispatch)
-//   }
-// }
+import { connect } from 'react-redux';
 
 interface IDispatchToProps {
   startFetchPost: Function,
@@ -54,13 +47,10 @@ const Home: React.FunctionComponent<TProps> = ({
 }: TProps) => {
 
   useEffect(() => {
-    // onRequestPosts();
+    startFetchPost();
     fetchParticipated();
     fetchLiked();
-    startFetchPost();
-  }, [startFetchPost]);
-  // }
-  // , [activities, isPending]);
+  }, [startFetchPost, fetchParticipated, fetchLiked]);
 
   return (
     <PageLayout>
@@ -79,4 +69,3 @@ const Home: React.FunctionComponent<TProps> = ({
 };
 
 export default connect(mapStatetoProps, {...postActions, ...userActions})(Home);
-// export default connect(mapStatetoProps, {requestActivities})(Home);

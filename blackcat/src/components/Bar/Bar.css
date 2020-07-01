@@ -22,10 +22,17 @@
   height: 24px;
   width: 24px;
   margin: 7px;
-  float:right;
+  float: right;
   border-radius: 50%;
   background-color: white;
   border: #8560A9 solid 1px;
+  padding: 0px;
+}
+
+#home-btn img {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
 }
 
 #logo-btn {

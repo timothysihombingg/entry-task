@@ -1,11 +1,20 @@
 import * as React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 
 import Login from '../pages/Login/index'
 import Home from '../pages/Home/index';
 import Details from '../pages/Detail/index';
+import { getUserStorage } from '../data/storage';
 
 function App() {
+  const user = getUserStorage();
+  const history = useHistory();
+
+  // if (!user.id) {
+  //   history.push('/login');
+  //   return null;
+  // }
+
   return (
     <div className="App">
       <BrowserRouter>

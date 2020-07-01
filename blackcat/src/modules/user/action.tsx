@@ -21,23 +21,23 @@ export function fetchParticipated() {
   }
 }
 
-export function likePostAction(id: number) {
+export function likePost(id: number) {
   return function(dispatch: Dispatch) {
     const liked = setLikedStorage(id);
     dispatch(getLiked(liked));
   }
 }
 
-export function participatePostAction(id: number) {
+export function participatePost(id: number) {
   return function(dispatch: Dispatch) {
-    const liked = setParticipatedStorage(id);
-    dispatch(getParticipated(liked));
+    const participated = setParticipatedStorage(id);
+    dispatch(getParticipated(participated));
   }
 }
 
 export function getLiked(id: number[]) {
   return {
-    type: UserAction.getLiked,
+    type: UserAction.GetLiked,
     payload: {
       id
     }
@@ -46,25 +46,25 @@ export function getLiked(id: number[]) {
 
 export function getParticipated(id: number[]) {
   return {
-    type: UserAction.getParticipated,
+    type: UserAction.GetParticipated,
     payload: {
       id
     }
   }
 }
 
-export function like(id: number) {
+export function likePostAction(id: number) {
   return {
-    type: UserAction.participate,
+    type: UserAction.Participate,
     payload: {
       id
     }
   }
 }
 
-export function participate(id: number) {
+export function participatePostAction(id: number) {
   return {
-    type: UserAction.participate,
+    type: UserAction.Participate,
     payload: {
       id
     }

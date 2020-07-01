@@ -26,14 +26,14 @@ export default function UserReducer(
   action: ActionCreator<Payload>
 ): IUserState {
   switch (action.type) {
-    case (UserAction.like):
+    case (UserAction.Like):
       return {
         ...state,
         liked: [
           ...state.liked,  (action.payload as IGetPayload).id
         ]
       }
-    case (UserAction.participate):
+    case (UserAction.Participate):
       return {
         ...state,
         participated: [
@@ -41,12 +41,12 @@ export default function UserReducer(
           (action.payload as IGetPayload).id
         ]
       }
-    case (UserAction.getLiked):
+    case (UserAction.GetLiked):
       return {
         ...state,
         liked: (action.payload as ISetPayload).id
       }
-    case (UserAction.getParticipated):
+    case (UserAction.GetParticipated):
       return {
         ...state,
         participated: (action.payload as ISetPayload).id

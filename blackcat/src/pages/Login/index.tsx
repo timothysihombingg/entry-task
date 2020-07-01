@@ -5,7 +5,8 @@ import styles from './login.module.scss';
 import { useHistory } from 'react-router-dom';
 import { ReactComponent as AppLogo } from '../../assets/svgs/logo-cat.svg';
 import { ReactComponent as UserIcon } from '../../assets/svgs/user.svg';
-import { ReactComponent as PasswordIcon } from '../../assets/svgs/password.svg'; 
+import { ReactComponent as PasswordIcon } from '../../assets/svgs/password.svg';
+import { setUserStorage } from '../../data/storage';
 
 const cx = classnames.bind(styles)
 
@@ -51,7 +52,8 @@ const Login: React.FunctionComponent<{}> = () => {
             })
             .then(response => response.json())
             .then(data => {
-              if (data === "success") {
+              if (data !== "failed") {
+                setUserStorage(data)
                 history.push('/home')
               }
             })
