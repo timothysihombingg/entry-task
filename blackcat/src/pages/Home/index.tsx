@@ -7,6 +7,7 @@ import { RootState } from '../../modules';
 import * as postActions from '../../modules/posts/action';
 import * as userActions from '../../modules/user/action';
 import { connect } from 'react-redux';
+import { getUserStorage, setLikedStorage } from '../../data/storage';
 
 interface IDispatchToProps {
   startFetchPost: Function,

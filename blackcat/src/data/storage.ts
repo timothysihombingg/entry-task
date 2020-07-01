@@ -6,8 +6,11 @@ enum StorageKeys {
   participated = 'storage/post/participated',
 }
 
-export const setUserStorage = (user: IUser) =>
+export const setUserStorage = (user: IUser) => {
   localStorage.setItem(StorageKeys.user, JSON.stringify(user));
+  localStorage.setItem(StorageKeys.liked, JSON.stringify(user.likes));
+  localStorage.setItem(StorageKeys.participated, JSON.stringify(user.going));
+}
 
 export const getUserStorage = (): IUser =>
   JSON.parse(localStorage.getItem(StorageKeys.user) || '{}');
@@ -18,7 +21,8 @@ export const setLikedStorage = (id: number): number[] => {
   );
 
   if (liked.includes(id)) {
-    liked.filter(currId => currId !== id);
+    liked = liked.filter(currId => currId !== id);
+    console.log(liked)
   } else {
     liked.push(id);
   }
@@ -41,7 +45,7 @@ export const setParticipatedStorage = (id: number): number[] => {
   );
 
   if (participated.includes(id)) {
-    participated.filter(currId => currId !== id);
+    participated =  participated.filter(currId => currId !== id);
   } else {
     participated.push(id);
   }

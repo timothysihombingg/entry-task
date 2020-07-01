@@ -8,6 +8,7 @@ import { ReactComponent as Like } from '../../assets/svgs/like-outline.svg';
 import { ReactComponent as CheckFilled } from '../../assets/svgs/check.svg';
 import { ReactComponent as LikeFilled } from '../../assets/svgs/like.svg';
 import { useHistory } from 'react-router-dom';
+import { getUserStorage } from '../../data/storage';
 
 const cx = classnames.bind(styles);
 
@@ -64,10 +65,16 @@ const Activity: React.FunctionComponent<Props> = ({
       </div>
       <p>{activity.description}</p>
       <div className={cx('check-like-container')}>
-        {participateComponent}
-        <span onClick={() => participatePost(activity.id)} >{totalParticipants} {participateText}</span>
-        {likeComponent}
-        <span onClick={() => likePost(activity.id)} >{totalLikes} {likeText}</span>
+        <div onClick={() => {
+            participatePost(activity.id)
+          }}>
+          {participateComponent}
+          <span>{totalParticipants} {participateText}</span>
+        </div>
+        <div onClick={() => likePost(activity.id)}>
+          {likeComponent}
+          <span>{totalLikes} {likeText}</span>
+        </div>
       </div>
     </div>  
   );
