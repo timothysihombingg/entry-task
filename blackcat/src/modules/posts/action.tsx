@@ -49,7 +49,6 @@ export const startFetchPostDetail = (id: string) => {
       .then(res => res.json())
       .then(data => {
         dispatch(finishFetchPostDetail(data as IActivity))
-        console.log(data)
       });
   }
 }

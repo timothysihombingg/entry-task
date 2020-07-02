@@ -45,8 +45,6 @@ export default function postDetailReducer(
   switch (action.type) {
     case actionType.FINISH_FETCH_POST_DETAIL:
       const { payload } = action as ActionCreator<IFinishFetchPayload>
-      console.log('masuk')
-      console.log(payload.post)
       return {
         ...state,
         post: payload.post

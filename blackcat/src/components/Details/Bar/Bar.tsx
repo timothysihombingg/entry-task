@@ -4,7 +4,7 @@ import classname from 'classnames/bind';
 import { ReactComponent as Info } from '../../../assets/svgs/info-outline.svg';
 import { ReactComponent as Comment } from '../../../assets/svgs/comment-outline.svg';
 import { ReactComponent as People } from '../../../assets/svgs/people-outline.svg';
-import * as userActions from '../../../modules/posts/action';
+import { setOn }  from '../../../modules/posts/action';
 import { IPostDetailState } from '../../../modules/posts/post_detail/reducer';
 import { connect } from 'react-redux';
 
@@ -24,12 +24,10 @@ const mapStatetoProps = (state: IPostDetailState) => {
 const DetailsBar: React.FunctionComponent<Props> = ({ 
   isOn,
   setOn
-}) => {
+}: Props) => {
   return (
     <div className={cx('details-bar')}>
-      <div className={isOn === 'info' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => {
-        setOn('info');
-      }}>
+      <div className={isOn === 'info' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => setOn('info')}>
         <Info className={isOn === 'info' ? cx('bar-img-on') : cx('bar-img-off')}/>
         <button>Details</button>
       </div>
@@ -49,4 +47,4 @@ const DetailsBar: React.FunctionComponent<Props> = ({
   );
 };
 
-export default DetailsBar;
+export default connect(mapStatetoProps, { setOn })(DetailsBar);

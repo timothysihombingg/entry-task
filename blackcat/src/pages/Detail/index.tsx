@@ -12,7 +12,6 @@ import Comment from '../../components/Details/Comment/Comment';
 import DetailsBar from '../../components/Details/Bar/Bar';
 import { startFetchPostDetail }  from '../../modules/posts/action';
 import { connect } from 'react-redux';
-// import { IPostDetailState } from '../../modules/posts/post_detail/reducer';
 import { RootState } from '../../modules';
 
 
@@ -43,8 +42,6 @@ const Detail: React.FunctionComponent<Props> = ({
 
   useEffect(() => {
     startFetchPostDetail(id);
-    console.log('yah')
-    console.log(activity)
   }, [startFetchPostDetail]);
 
   if (isOn == "info") {
@@ -62,7 +59,7 @@ const Detail: React.FunctionComponent<Props> = ({
         <hr />
       </div>
     )
-  } else if (isOn == " participants") {
+  } else if (isOn == "participant") {
     detailComponent = (
       <div>
         <Participants activity1={activity} />
@@ -87,7 +84,7 @@ const Detail: React.FunctionComponent<Props> = ({
         <Header activity1={activity} />
         <div className={cx('details-bar')}>
           <hr className={cx('top-hr')}/>
-          <DetailsBar isOn={isOn} setOn={setOn}/>
+          <DetailsBar />
           <hr />
         </div>
         {detailComponent}
