@@ -22,4 +22,10 @@ input {
   position: relative;
   background-color: $background;
   font-family: 'Source Sans Pro', sans-serif;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.page-container::-webkit-scrollbar {
+  display: none;
 }

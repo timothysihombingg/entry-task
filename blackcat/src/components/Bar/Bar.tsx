@@ -14,7 +14,9 @@ function Bar() {
   return (
     <div className="header-bar">
       <button id="search-btn"><img src={Search} alt="search"/></button>
-      <button id="home-btn"><img src={getUserStorage().profile_picture} alt="home" /></button>
+      <button id="home-btn"><img src={getUserStorage().profile_picture} alt="home" onClick={() => {
+        history.push('/profile');
+      }} /></button>
       <button id="logo-btn"><img src={Logo} alt="logo" onClick={() => {
         history.push('/home');
       }}/></button>

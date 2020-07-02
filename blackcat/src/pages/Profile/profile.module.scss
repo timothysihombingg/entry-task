@@ -1,0 +1,115 @@
+@import '../../styles/colors';
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+  img {
+    height: 72px;
+    width: 72px;
+    border-radius: 100%;
+    border: 3px solid $primary-light;
+    margin: 36px 0 24px 0;
+  }
+
+  span {
+    font-size: 24px;
+    color: $primary-neutral;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0 24px 0;
+
+    .email-profile {
+      width: 16px;
+      height: 13px;
+      fill: $primary;
+    }
+
+    span {
+      color: $primary;
+      margin: 8px 0 24px 0;
+      font-size: 14px;
+      margin: 0 0 0 5px;
+    }
+  }
+}
+
+hr {
+  margin: 0;
+}
+
+.details-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+
+  .bar-btn-off {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .bar-img-off {
+      height: 16.7px;
+      width: 16.7px;
+      fill: #BABABA;
+    }
+
+    button {
+      background-color: transparent;
+      border-color: transparent;
+      color: #BABABA;
+      font-family: 'Source Sans Pro', sans-serif;
+      outline: none;
+    }  
+  } 
+
+  .bar-btn-on {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .bar-img-on {
+      height: 16.7px;
+      width: 16.7px;
+      fill: #AECB4F;
+    }
+
+    button {
+      background-color: transparent;
+      border-color: transparent;
+      color: #AECB4F;
+      font-family: 'Source Sans Pro', sans-serif;
+      outline: none;
+    }  
+  } 
+}
+
+.profile-activity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .no-activity {
+    margin-top: 72px;
+    width: 72px;
+    height: 72px;
+    fill: $primary-light;
+  }
+
+  p {
+    color: #BABABA;
+    font-size: 14px;
+  }
+}

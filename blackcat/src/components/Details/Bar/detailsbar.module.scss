@@ -1,10 +1,11 @@
-@import '../../../styles//colors';
+@import '../../../styles/colors';
 
 .details-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 0 10px 0;
 
   .bar-btn-off {
     display: flex;
@@ -42,6 +43,7 @@
       border-color: transparent;
       color: #AECB4F;
       font-family: 'Source Sans Pro', sans-serif;
+      outline: none;
     }  
   } 
 }

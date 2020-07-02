@@ -53,8 +53,12 @@ const Detail: React.FunctionComponent<Props> = ({
         <hr />
         <Participants activity1={activity} />
         <hr />
+        <br />
         {activity.comments.map((comment) =>
-          <Comment comment={comment}/>
+          <div>
+            <Comment comment={comment}/>
+            <br/>
+        </div>
         )}
         <hr />
       </div>
@@ -69,8 +73,12 @@ const Detail: React.FunctionComponent<Props> = ({
   } else {
     detailComponent = (
       <div>
+        <br />
         {activity.comments.map((comment) =>
-          <Comment comment={comment}/>
+          <div>
+            <Comment comment={comment}/>
+            <br/>
+          </div>
         )}
         <hr />
       </div>

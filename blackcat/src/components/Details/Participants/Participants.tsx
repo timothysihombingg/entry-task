@@ -15,17 +15,17 @@ const Participants: React.FunctionComponent<Props> = ({
   activity1
 }) => {
   var participantsArr;
-  if (activity1.participants.length <=  8) {
+  if (activity1.participants.length <=  7) {
     participantsArr = activity1.participants;
   } else {
-    participantsArr = activity1.participants.slice(0,8);
+    participantsArr = activity1.participants.slice(0,7);
   }
 
   var likesArr;
-  if (activity1.likes.length <=  8) {
+  if (activity1.likes.length <=  7) {
     likesArr = activity1.likes;
   } else {
-    likesArr = activity1.likes.slice(0,8);
+    likesArr = activity1.likes.slice(0,7);
   }
 
   return (

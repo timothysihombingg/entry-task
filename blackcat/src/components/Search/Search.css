@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 .search-page {
-  width: 70%;
+  width: 240px;
   background-color: #453257;
   height: 100vh;
+  margin-right: 0;
 }
 
 .search-bar-title {
@@ -29,7 +30,7 @@
 }
 
 .search-btn-container button {
-  border: white solid 1px;
+  border: none;
 }
 
 .search-btn-container button:hover, .search-btn-container button:hover {

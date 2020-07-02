@@ -39,10 +39,17 @@
   margin: auto;
   width: 80%;
 
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .login-icon {
     height: 14px;
     width: 14px;
     margin-right: 5px;
+    fill: $primary-light;
   }
 
   div {
@@ -54,9 +61,10 @@
     input {
       font-family: 'Source Sans Pro', sans-serif;
       background-color: transparent;
-      color: $primary-dark;
+      color: $primary-light;
       border: transparent;
       outline: transparent;
+      width: 90%;
     }
   
     ::placeholder {
