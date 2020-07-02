@@ -39,7 +39,6 @@ const TimePlace: React.FunctionComponent<Props> = ({
         <span>{activity1.address}</span>
         <img src={Map} alt="location" />
       </div>
-      <hr/>
     </div>
     
   );

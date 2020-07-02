@@ -1,0 +1,26 @@
+@import '../../styles/colors';
+
+.details-container {
+  padding: 16px;
+}
+
+hr {
+  background-color: #E8E8E8;
+  border: none;
+  height: 1px;
+}
+
+.details-bar {
+  position: sticky;
+  top: 2.5em;
+  margin-top: 0px;
+  background-color: $background;
+
+  .top-hr {
+    margin-top: 0;
+  }
+}
+
+p {
+  font-size: 14px;
+}

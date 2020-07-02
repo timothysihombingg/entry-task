@@ -1,8 +1,6 @@
 import * as actionType from './constants';
 import { ActionCreator } from '../../types/action.types';
 import { IActivity } from '../../types/activity.types'
-import { act } from 'react-dom/test-utils';
-import { stat } from 'fs';
 
 const initialState = {
   posts: [],
@@ -43,30 +41,3 @@ export default function postReducer(
   }
   return state;
 }
-
-// export const initialState = {
-//   isPending: false,
-//   activities: [],
-//   error: ''
-// }
-
-// export interface IPostState {
-//   isPending: boolean,
-//   activities: IActivity[],
-//   error: string
-// }
-
-// export const requestActivities = (
-//   state: IPostState =initialState, 
-//   action: ActionCreator) => {
-//   switch (action.type) {
-//     case actionType.REQUEST_POST_PENDING:
-//       return Object.assign({}, state, { isPending: true })
-//     case actionType.REQUEST_POST_SUCCESS:
-//       return Object.assign({}, state, { activities: action.payload, isPending: false })
-//     case actionType.REQUEST_POST_FAILED:
-//       return Object.assign({}, state, { error: action.payload, isPending: false })
-//     default:
-//       return state
-//   }
-// }

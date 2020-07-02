@@ -44,7 +44,7 @@ const Participants: React.FunctionComponent<Props> = ({
           <img src={like.profile_picture} />
         )}
       </div>
-      <br/> <hr />
+      <br/>
     </div>
   );
 };

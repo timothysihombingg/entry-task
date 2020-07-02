@@ -22,7 +22,6 @@ export const setLikedStorage = (id: number): number[] => {
 
   if (liked.includes(id)) {
     liked = liked.filter(currId => currId !== id);
-    console.log(liked)
   } else {
     liked.push(id);
   }

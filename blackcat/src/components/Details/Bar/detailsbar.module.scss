@@ -1,0 +1,46 @@
+@import '../../../styles//colors';
+
+.details-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .bar-btn-off {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .bar-img-off {
+      height: 16.7px;
+      width: 16.7px;
+      fill: #BABABA;
+    }
+
+    button {
+      background-color: transparent;
+      border-color: transparent;
+      color: #BABABA;
+      font-family: 'Source Sans Pro', sans-serif;
+    }  
+  } 
+
+  .bar-btn-on {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .bar-img-on {
+      height: 16.7px;
+      width: 16.7px;
+      fill: #AECB4F;
+    }
+
+    button {
+      background-color: transparent;
+      border-color: transparent;
+      color: #AECB4F;
+      font-family: 'Source Sans Pro', sans-serif;
+    }  
+  } 
+}

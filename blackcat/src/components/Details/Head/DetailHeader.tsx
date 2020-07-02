@@ -2,10 +2,6 @@ import React from 'react';
 import style from './detailheader.module.scss';
 import classname from 'classnames/bind';
 import { IActivity } from '../../../types/activity.types';
-import { ReactComponent as Info } from '../../../assets/svgs/info-outline.svg';
-import { ReactComponent as Comment } from '../../../assets/svgs/comment-outline.svg';
-import { ReactComponent as People } from '../../../assets/svgs/people-outline.svg';
-
 const cx = classname.bind(style);
 
 interface Props {
@@ -26,26 +22,6 @@ const DetailHeader: React.FunctionComponent<Props> = ({
           <p>Published 2 days ago</p>
         </div>
       </div>
-      <hr />
-      <div className={cx('details-bar')}>
-        <div className={cx('bar-btn')}>
-          <Info className={cx('bar-img')}/>
-          <button>Details</button>
-        </div>
-        <div className={cx('bar-btn')}>
-          <Comment className={cx('bar-img')}/>
-          <button>Comments</button>
-        </div>
-        <div className={cx('bar-btn')}>
-          <People className={cx('bar-img')}/>
-          <button>Participants</button>
-        </div>
-    </div>
-    <hr/>
-    <p>
-      {activity1.description}
-    </p>
-    <hr />
     </div>
   );
 };

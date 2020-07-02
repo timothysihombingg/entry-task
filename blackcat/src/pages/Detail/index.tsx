@@ -9,58 +9,91 @@ import Header from '../../components/Details/Head/DetailHeader';
 import TimePlace from '../../components/Details/TimePlace/TimePlace';
 import Participants from '../../components/Details/Participants/Participants';
 import Comment from '../../components/Details/Comment/Comment';
+import DetailsBar from '../../components/Details/Bar/Bar';
+import { startFetchPostDetail }  from '../../modules/posts/action';
+import { connect } from 'react-redux';
+// import { IPostDetailState } from '../../modules/posts/post_detail/reducer';
+import { RootState } from '../../modules';
+
 
 const cx = classname.bind(styles)
 
-const activity1: IActivity = {
-  id: 1,
-  profile_picture: 'haha',
-  username: 'Username',
-  channel_name: 'Channel Name',
-  title: 'Activity Title Name Make it Longer May Longer than One Line',
-  description: '[No longer than 300 chars] Vivamus sagittis, diam in lobortis, sapien arcu mattis erat, vel aliquet sem urna et risus. Ut feugiat sapien mi potenti...',
-  start_date: '1 January 2020',
-  end_date: '1 January 2020',
-  start_time: '14:00',
-  end_time: '16:30',
-  location: 'Camp Nou',
-  address: 'Barcelona, Spain',
-  participants: [{
-    username: 'Username',
-    profile_picture: 'https://i.pravatar.cc/300?1292'
-  }],
-  comments: [{
-    username: 'Lionel Messi',
-    profile_picture: 'https://i.pravatar.cc/300?1291',
-    comment: 'I really enjoyed the activity!'
-  }],
-  likes: []
+interface Props {
+  startFetchPostDetail: Function,
+  setOn: Function,
+  activity: IActivity,
+  isOn: string
+};
+
+const mapStatetoProps = (state: RootState) => {
+  return {
+    activity: state.activity.post,
+    isOn: state.activity.isOn
+  }
 }
 
-const Detail: React.FunctionComponent<{}> = () => {
-  const [activity, setActivity] = useState(activity1)
+const Detail: React.FunctionComponent<Props> = ({
+  startFetchPostDetail,
+  activity,
+  isOn,
+  setOn
+}: Props) => {
   let { id } = useParams();
+  let detailComponent;
 
   useEffect(() => {
-    const fecthData = async () => {
-      fetch("http://localhost:4000/activity/" + id)
-        .then(res => res.json())
-        .then(res => setActivity(res))
-      }
-      fecthData();
-    }
-  );
+    startFetchPostDetail(id);
+    console.log('yah')
+    console.log(activity)
+  }, [startFetchPostDetail]);
+
+  if (isOn == "info") {
+    detailComponent = (
+      <div>
+        <p>{activity.description}</p>
+        <hr />
+        <TimePlace activity1={activity} />
+        <hr />
+        <Participants activity1={activity} />
+        <hr />
+        {activity.comments.map((comment) =>
+          <Comment comment={comment}/>
+        )}
+        <hr />
+      </div>
+    )
+  } else if (isOn == " participants") {
+    detailComponent = (
+      <div>
+        <Participants activity1={activity} />
+        <hr />
+      </div>
+    )
+  } else {
+    detailComponent = (
+      <div>
+        {activity.comments.map((comment) =>
+          <Comment comment={comment}/>
+        )}
+        <hr />
+      </div>
+    )
+  }
+
   return (
     <PageLayout>
       <Bar />
-      <Header activity1={activity} />
-      <TimePlace activity1={activity} />
-      <Participants activity1={activity} />
-      {activity.comments.map((comment) =>
-        <Comment comment={comment}/>
-      )}
+      <div className={cx("details-container")}>
+        <Header activity1={activity} />
+        <div className={cx('details-bar')}>
+          <hr className={cx('top-hr')}/>
+          <DetailsBar isOn={isOn} setOn={setOn}/>
+          <hr />
+        </div>
+        {detailComponent}
+      </div>
     </PageLayout>
   );
 };
 
-export default Detail;
+export default connect(mapStatetoProps, { startFetchPostDetail })(Detail);

@@ -2,7 +2,6 @@
 
 .details-header {
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 16px 16px 0 16px;
 
   hr {
     background-color: #E8E8E8;
@@ -56,30 +55,5 @@
       font-size: 12px;
       margin: 0;
     }
-  }
-
-  .details-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    .bar-btn {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      .bar-img {
-        height: 16.7px;
-        width: 16.7px;
-      }
-    }
-    
-    button {
-      background-color: transparent;
-      border-color: transparent;
-      color: #BABABA;
-      font-family: 'Source Sans Pro', sans-serif;
-    }    
   }
 }

@@ -10,6 +10,20 @@ export const finishFetchPost = (posts: IActivity[]) => ({
   }
 })
 
+export const finishFetchPostDetail = (post: IActivity) => ({
+  type: actionType.FINISH_FETCH_POST_DETAIL,
+  payload: {
+    post
+  }
+})
+
+export const setStatus = (status: string) => ({
+  type: actionType.SET_STATUS,
+  payload: {
+    status
+  }
+})
+
 export const setLoading = (status: boolean) => ({
   type: actionType.SET_LOADING,
   payload: {
@@ -26,5 +40,22 @@ export const startFetchPost = (
       .then(res => res.json())
       .then(data => dispatch(finishFetchPost(data as IActivity[])));
     dispatch(setLoading(false));
+  }
+}
+
+export const startFetchPostDetail = (id: string) => {
+  return async (dispatch: Dispatch) => {
+    fetch("http://localhost:4000/activity/" + id)
+      .then(res => res.json())
+      .then(data => {
+        dispatch(finishFetchPostDetail(data as IActivity))
+        console.log(data)
+      });
+  }
+}
+
+export const setOn = (status: string) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(setStatus(status))
   }
 }
