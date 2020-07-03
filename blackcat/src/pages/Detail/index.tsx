@@ -13,6 +13,8 @@ import DetailsBar from '../../components/Details/Bar/Bar';
 import { startFetchPostDetail }  from '../../modules/posts/action';
 import { connect } from 'react-redux';
 import { RootState } from '../../modules';
+import { ReactComponent as Cross } from '../../assets/svgs/cross.svg';
+import { ReactComponent as Send } from '../../assets/svgs/send.svg';
 
 
 const cx = classname.bind(styles)
@@ -44,7 +46,7 @@ const Detail: React.FunctionComponent<Props> = ({
     startFetchPostDetail(id);
   }, [startFetchPostDetail]);
 
-  if (isOn == "info") {
+  if (isOn == "info") { 
     detailComponent = (
       <div>
         <p>{activity.description}</p>
@@ -85,6 +87,16 @@ const Detail: React.FunctionComponent<Props> = ({
     )
   }
 
+  const commentInput = (
+    <div className={cx('comment-input')}>
+      <div>
+        <Cross className={cx('comment-cross')}/>
+        <input type="text" />
+      </div>
+      <Send className={cx('comment-send')}/>
+    </div>
+  );
+
   return (
     <PageLayout>
       <Bar />
@@ -97,6 +109,7 @@ const Detail: React.FunctionComponent<Props> = ({
         </div>
         {detailComponent}
       </div>
+      {(isOn === 'comment') ? commentInput : <div></div>}
     </PageLayout>
   );
 };

@@ -21,9 +21,10 @@ const Comment: React.FunctionComponent<Props> = ({
       <img src={comment.profile_picture}/>
       <div>
         <span>{comment.username}</span>
+        <span className={cx('comment-time')}>9 hours ago</span>
         <p>{comment.comment}</p>
       </div>
-      <Reply />
+      <Reply className={cx('reply-icon')}/>
     </div>
   );
 };
