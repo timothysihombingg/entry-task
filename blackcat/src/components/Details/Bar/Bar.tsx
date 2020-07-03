@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './detailsbar.module.scss';
 import classname from 'classnames/bind';
 import { ReactComponent as Info } from '../../../assets/svgs/info-outline.svg';
@@ -7,6 +7,7 @@ import { ReactComponent as People } from '../../../assets/svgs/people-outline.sv
 import { setOn }  from '../../../modules/posts/action';
 import { IPostDetailState } from '../../../modules/posts/post_detail/reducer';
 import { connect } from 'react-redux';
+import { RootState } from '../../../modules';
 
 const cx = classname.bind(style);
 
@@ -15,16 +16,17 @@ interface Props {
   setOn: Function
 }
 
-const mapStatetoProps = (state: IPostDetailState) => {
+const mapStatetoProps = (state: RootState) => {
   return {
-    isOn: state.isOn
+    isOn: state.activity.isOn
   }
 }
 
 const DetailsBar: React.FunctionComponent<Props> = ({ 
-  isOn,
+  isOn = 'info',
   setOn
 }: Props) => {
+
   return (
     <div className={cx('details-bar')}>
       <div className={isOn === 'info' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => setOn('info')}>

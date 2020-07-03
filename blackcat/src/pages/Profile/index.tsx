@@ -10,10 +10,18 @@ import { ReactComponent as NoActivity } from '../../assets/svgs/no-activity.svg'
 import { ReactComponent as Email } from '../../assets/svgs/email.svg';
 import { connect } from 'react-redux';
 import Bar from '../../components/Bar/Bar';
+import { setOn } from '../../modules/posts/action';
+import { RootState } from '../../modules'
 
 interface Props {
   isOn: string,
   setOn: Function
+}
+
+const mapStateToProps = (state: RootState) => {
+  return {
+    isOn: state.activity.isOn
+  }
 }
 
 const Profile: React.FunctionComponent<Props> = ({
@@ -38,19 +46,19 @@ const Profile: React.FunctionComponent<Props> = ({
       <div className={cx('details-bar')}>
         <div className={isOn === 'info' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => setOn('info')}>
           <Info className={isOn === 'info' ? cx('bar-img-on') : cx('bar-img-off')}/>
-          <button>Details</button>
+          <button>{user.likes.length} Likes</button>
         </div>
         <div className={isOn === 'participant' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => {
           setOn('participant');
         }}>
           <People className={isOn === 'participant' ? cx('bar-img-on') : cx('bar-img-off')}/>
-          <button>Participants</button>
+          <button>{user.going.length} Going</button>
         </div>
         <div className={isOn === 'comment' ? cx('bar-btn-on') : cx('bar-btn-off')} onClick={() => {
           setOn('comment');
         }}>
           <Comment className={isOn === 'comment' ? cx('bar-img-on') : cx('bar-img-off')}/>
-          <button>Comments</button>
+          <button>{user.going.length} Past</button>
         </div>
       </div>
       <hr />
@@ -62,4 +70,4 @@ const Profile: React.FunctionComponent<Props> = ({
   );
 };
 
-export default connect()(Profile);
+export default connect(mapStateToProps, {setOn})(Profile);
